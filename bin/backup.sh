@@ -42,7 +42,6 @@ echo "Backing up databases"
 #Modify ‘backup_username’ and ‘PASSWORD’ accordingly
 #mysqldump -u backup_username -pPASSWORD --all-databases &gt; "$TEMP_MYSQL_DATABASE_BACKUP_DIR_URL/databases.sql"
 
-
 tar -cf "$OUTPUT_DIR/$DATE_NAME.tar" $TEMP_BACKUP_DIR
 rm -rf $TEMP_BACKUP_DIR
 

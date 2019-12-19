@@ -1,2 +1,2 @@
-# backmeup
-Collection of scripts for creating backups on linux servers
+# Back Me Up
+Collection of scripts for creating file and database backups on linux servers.
