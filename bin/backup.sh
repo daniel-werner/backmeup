@@ -5,8 +5,9 @@ USER=""
 PASSWORD=""
 INPUT_DIR=""
 OUTPUT_DIR=""
+SCRIPT_DIR=$(dirname $(realpath "$0"))
 
-while getopts i:o: OPTION
+while getopts u:p:i:o: OPTION
 do
     case ${OPTION} in
         u) USER=${OPTARG};;
@@ -40,9 +41,11 @@ tar -zcf "$TEMP_NGINX_CONFIG_DIR/configs.tar.gz" "/etc/nginx/sites-available"
 echo "Backing up databases"
 #This will backup all my databases
 #Modify ‘backup_username’ and ‘PASSWORD’ accordingly
-#mysqldump -u backup_username -pPASSWORD --all-databases &gt; "$TEMP_MYSQL_DATABASE_BACKUP_DIR_URL/databases.sql"
 
-tar -cf "$OUTPUT_DIR/$DATE_NAME.tar" $TEMP_BACKUP_DIR
+sh $SCRIPT_DIR/dump-all-databases.sh  -u $USER -p $PASSWORD -o $TEMP_MYSQL_DATABASE_BACKUP_DIR -z
+
+cd $TEMP_DIR
+tar -cf "$OUTPUT_DIR/$DATE_NAME.tar" $DATE_NAME
 rm -rf $TEMP_BACKUP_DIR
 
 OLD_BACKUP_FILES=`ls $OUTPUT_DIR -t | tail -n +11`
