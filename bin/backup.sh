@@ -34,6 +34,10 @@ mkdir -p $TEMP_SITES_BACKUP_DIR
 mkdir -p $TEMP_NGINX_CONFIG_DIR
 mkdir -p $TEMP_MYSQL_DATABASE_BACKUP_DIR
 
+if [ ! -d "$OUTPUTDIR" ]; then
+    mkdir -p $OUTPUTDIR
+fi
+
 echo "Backing up sites and config"
 tar -zcf "$TEMP_SITES_BACKUP_DIR/sites.tar.gz" $INPUT_DIR
 tar -zcf "$TEMP_NGINX_CONFIG_DIR/configs.tar.gz" "/etc/nginx/sites-available"
