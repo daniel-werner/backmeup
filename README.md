@@ -13,6 +13,12 @@ sudo su dropbox
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 ```
 
+### Start dropbox daemon and link to your dropbox account
+
+```
+~/.dropbox-dist/dropboxd
+```
+
 ### Add dropbox daemon to crontab to start automatically
 
 ```
