@@ -39,7 +39,7 @@ if [ ! -d "$OUTPUTDIR" ]; then
 fi
 
 echo "Backing up sites and config"
-tar -zcf "$TEMP_SITES_BACKUP_DIR/sites.tar.gz" $INPUT_DIR
+tar -zcfh "$TEMP_SITES_BACKUP_DIR/sites.tar.gz" $INPUT_DIR
 tar -zcf "$TEMP_NGINX_CONFIG_DIR/configs.tar.gz" "/etc/nginx/sites-available"
 
 echo "Backing up databases"
