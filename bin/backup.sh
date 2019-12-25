@@ -53,7 +53,7 @@ cd $TEMP_DIR
 tar -cf "$OUTPUT_DIR/$DATE_NAME.tar" $DATE_NAME
 rm -rf $TEMP_BACKUP_DIR
 
-OLD_BACKUP_FILES=`ls $OUTPUT_DIR -t | tail -n +11`
+OLD_BACKUP_FILES=`ls $OUTPUT_DIR -t | tail -n +31`
 
 if [ -n "$OLD_BACKUP_FILES" ]
 then
